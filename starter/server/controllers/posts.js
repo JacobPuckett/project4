@@ -1,7 +1,8 @@
 require('dotenv').config()
 const {DataTypes} = require('sequelize')
 const {sequelize} = require('../util/database')
-
+const {Post} = require('../models/post')
+const {User} = require('../models/user')
 
 module.exports = {
     Post : sequelize.define('post', {

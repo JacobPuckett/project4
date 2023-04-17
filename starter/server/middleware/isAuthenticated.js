@@ -10,22 +10,18 @@ module.exports = {
             console.log('ERROR IN auth middleware')
             res.sendStatus(401) // if there is an error log ^
         }
-
         let token
-
         try {
             token = jwt.verify(headerToken, SECRET)
         } catch (err) {
             err.statusCode = 500
             throw err
         }
-
         if (!token) {
             const error = new Error('Not authenticated.')
             error.statusCode = 401
             throw error
         }
-
         next()
     }
 }
