@@ -1,5 +1,5 @@
 import {useState, useContext} from 'react'
-import axios from 'react'
+import axios from 'axios'
 import AuthContext from '../store/authContext'
  
 const Auth = () => {
@@ -17,7 +17,7 @@ const Auth = () => {
             password
         }
        console.log('submitHandler called')
-       const url ='https://socialmtn.devmountain.com'
+       const url ='http://localhost:4005'
        
        axios.post(register ? `${url}/register` : `${url}/login`, body)
         .then(({res, data}) => {
